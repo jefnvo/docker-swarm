@@ -8,7 +8,8 @@ services:
       - source: proxy
         target: /etc/nginx/nginx.conf 
     ports:
-      - 8000:8000
+      - 80:80
+      - 443:443
     networks:
       - frontend
     deploy:
@@ -36,7 +37,6 @@ services:
       - "constraint:node==worker"
 
   vote:
-
     image: dockersamples/examplevotingapp_vote:before
     container_name: vote
     hostname: vote
@@ -52,16 +52,12 @@ services:
   # Web UI to count voting results
 
   result:
-
     image: dockersamples/examplevotingapp_result:before
     container_name: result
     hostname: result
     ports:
-
       - 5001:80
-
     depends_on:
-
       - db
     networks:
       - backend
@@ -71,7 +67,6 @@ services:
   # Worker service to read from message queue
 
   worker:
-
     image: dockersamples/examplevotingapp_worker
     networks:
       - backend
