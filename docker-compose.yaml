@@ -2,36 +2,22 @@ version: "3"
 
 services:
 
- 
-
-  # A Redis key-value store to serve as message queue
-
   redis:
 
     image: redis:alpine
 
     ports:
-
       - "6379"
     networks:
       - frontend
 
- 
-
-  # A PostgreSQL database for persistent storage
-
   db:
-
     image: postgres:9.4
     container_name: db
     volumes:
       - "db-data:/var/lib/postgresql/data"
     networks:
       - backend
-
- 
-
-  # Web UI for voting
 
   vote:
 
@@ -64,7 +50,6 @@ services:
       - db
     networks:
       - backend
-      - frontend
 
  
 
@@ -75,9 +60,11 @@ services:
     image: dockersamples/examplevotingapp_worker
     networks:
       - backend
+      - frontend
 
 volumes:
   db-data:
+    
 networks:
   frontend:
   backend:
