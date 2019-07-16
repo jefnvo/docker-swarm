@@ -38,8 +38,8 @@ services:
   vote:
 
     image: dockersamples/examplevotingapp_vote:before
-    container_name: docker-vote
-    hostname: docker-vote
+    container_name: vote
+    hostname: vote
     ports:
       - 5000:80
     depends_on:
@@ -54,7 +54,8 @@ services:
   result:
 
     image: dockersamples/examplevotingapp_result:before
-    hostname: docker-result
+    container_name: result
+    hostname: result
     ports:
 
       - 5001:80
