@@ -27,6 +27,7 @@ services:
   db:
     image: postgres:9.4
     container_name: db
+    hostname: db
     volumes:
       - "db-data:/var/lib/postgresql/data"
     networks:
@@ -78,7 +79,7 @@ services:
 configs:
   proxy:
     external: true
-    
+
 volumes:
   db-data:
     
