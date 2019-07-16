@@ -30,4 +30,5 @@ nginx:
     labels:
         - "interlock.ext.name=nginx"
     environment:
-        - "constraint:node==worker
+        - "constraint:node==worker"
+    
