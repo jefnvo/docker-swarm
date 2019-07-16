@@ -2,13 +2,18 @@ version: "3.3"
 
 services:
 
-  nginx: 
-    image: reverse:latest
-    container_name: reverseproxy
-    hostname: reverseproxy
+  proxy:
+    image: nginx:1.13.6
+    configs:
+      - source: proxy
+        target: /etc/nginx/nginx.conf 
     ports:
-      - 80:80
-      - 443:443
+      - 8000:8000
+    networks:
+      - front
+    deploy:
+      restart_policy:
+        condition: on-failure
 
   redis:
 
@@ -32,13 +37,11 @@ services:
   vote:
 
     image: dockersamples/examplevotingapp_vote:before
+    container_name: docker-vote
     hostname: docker-vote
     ports:
-
       - 5000:80
-
     depends_on:
-
       - redis
     networks:
       - frontend
@@ -72,6 +75,10 @@ services:
       - backend
       - frontend
 
+configs:
+  proxy:
+    external: true
+    
 volumes:
   db-data:
     
