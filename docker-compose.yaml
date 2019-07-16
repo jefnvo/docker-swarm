@@ -6,7 +6,8 @@ services:
     image: reverse:latest
     container_name: reverseproxy
     ports:
-      - 80:5000
+      - 80:80
+      - 8080:8080
 
   redis:
 
@@ -30,7 +31,7 @@ services:
   vote:
 
     image: dockersamples/examplevotingapp_vote:before
-    hostname: vote_node
+    hostname: docker-vote
     ports:
 
       - 5000:80
@@ -48,7 +49,7 @@ services:
   result:
 
     image: dockersamples/examplevotingapp_result:before
-    hostname: result_node
+    hostname: docker-result
     ports:
 
       - 5001:80
