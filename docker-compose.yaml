@@ -11,6 +11,7 @@ services:
       - 80:80
     networks:
       - frontend
+      - backend
     deploy:
       restart_policy:
         condition: on-failure
