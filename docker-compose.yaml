@@ -9,7 +9,7 @@ services:
         target: /etc/nginx/nginx.conf 
       - source: cert
         target: /etc/nginx/server.cert
-      - source:
+      - source: certkey
         target: /etc/nginx/server.key
 
     ports:
