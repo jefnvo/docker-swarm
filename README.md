@@ -18,5 +18,6 @@ Essa aplicação necessita de hosts para a formação de um cluster a ser contro
 
 # Execute o docker-compose utilizando cli docker stack para distribuir os conteiners no cluster
 - docker stack deploy -c docker-compose.yaml teste
-
+# Escale a api de votaçãopara dois
+- docker service scale teste__vote=2
 
