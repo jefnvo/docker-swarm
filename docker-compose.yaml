@@ -7,8 +7,14 @@ services:
     configs:
       - source: proxy
         target: /etc/nginx/nginx.conf 
+      - source: cert
+        target: /etc/nginx/server.cert
+      - source:
+        target: /etc/nginx/server.key
+
     ports:
       - 80:80
+      - 443:443
     networks:
       - frontend
       - backend
@@ -65,6 +71,10 @@ services:
 
 configs:
   proxy:
+    external: true
+  cert:
+    external: true
+  certkey:
     external: true
 
 volumes:
