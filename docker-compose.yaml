@@ -8,9 +8,9 @@ services:
       - source: proxy
         target: /etc/nginx/nginx.conf 
       - source: cert
-        target: /etc/nginx/server.cert
+        target: /etc/nginx/cert.pem
       - source: certkey
-        target: /etc/nginx/server.key
+        target: /etc/nginx/key.pem
 
     ports:
       - 80:80
