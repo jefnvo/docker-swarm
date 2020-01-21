@@ -9,6 +9,7 @@ Arquitetura:
 
 # docker-swarm
 Requisitos:
+
 	- 1 docker-machine
 	- 2 virtualbox
 
