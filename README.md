@@ -9,8 +9,8 @@ Arquitetura:
 
 # docker-swarm
 Requisitos:
-	- docker-machine
-	- virtualbox
+	- 1 docker-machine
+	- 2 virtualbox
 
 Essa aplicação necessita de hosts para a formação de um cluster a ser controlado pelo docker swarm. Você pode usar o docker-machine para criar máquinas virtuais utilizando o driver virtualbox.
 
